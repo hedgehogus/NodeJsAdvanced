@@ -1,0 +1,21 @@
+{
+  "name": "NodeJsAdvanced",
+  "version": "1.0.0",
+  "description": "",
+  "main": "EventLoopEmulation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set UV_THREADPOOL_SIZE=5 & node threads.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hedgehogus/NodeJsAdvanced.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hedgehogus/NodeJsAdvanced/issues"
+  },
+  "homepage": "https://github.com/hedgehogus/NodeJsAdvanced#readme"
+}
