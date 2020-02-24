@@ -19,3 +19,8 @@ env->SetMethod(target, "pbkdf2", PBKDF2);  // c++ exports
 
 - **What functions in node std library use OS's async features?** Almost everything around networking for all OS's. Some other stuff in OS specific
 - **How does this os stuff fit into event loop** Tasks using the underlying OS are reflected in 'pendingOSTasks"
+
+## Improving node perfomance
+
+- use node in 'cluster' mode - recommended
+- use worker threads - experimental
