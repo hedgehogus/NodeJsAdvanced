@@ -5,7 +5,7 @@ const crypto = require('crypto');
 if (cluster.isMaster){
     // Cause index.js to be executed *again* but in child(slave) mode
     cluster.fork();
- //   cluster.fork();
+    cluster.fork(); // the count of fork need match the number of cores
  //   cluster.fork();
  //   cluster.fork();
 } else {
