@@ -24,3 +24,16 @@ env->SetMethod(target, "pbkdf2", PBKDF2);  // c++ exports
 
 - use node in 'cluster' mode - recommended
 - use worker threads - experimental
+
+**PM2 - Production Process Manager with a built-in Load Balancer** - https://github.com/Unitech/pm2 - https://pm2.keymetrics.io/
+- npm install -g pm2 
+- pm2 start filename.js -i 0 // start // -i - number of instances (0 - default number of logical cores)
+- pm2 list // summary of current cluster
+- pm2 show filename.js
+- pm2 monit // open monitor application in terminal
+- pm2 delete filename // stop
+
+**webworker-threads**
+- pm
+
+
