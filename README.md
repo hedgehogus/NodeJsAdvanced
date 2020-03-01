@@ -34,6 +34,12 @@ env->SetMethod(target, "pbkdf2", PBKDF2);  // c++ exports
 - pm2 delete filename // stop
 
 **webworker-threads**
-- pm
+
+## Caching
+- we can add index for searching property but it takes memory and time while writing data
+- **caching server** between mongoose and mongodb. Caching server cheks if this query been ever executed before
+**Redis** - instance of cache server - **in memory data store**
+**node-redis** - node implementation of the library
+
 
 
