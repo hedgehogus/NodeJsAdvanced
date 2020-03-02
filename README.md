@@ -35,7 +35,7 @@ env->SetMethod(target, "pbkdf2", PBKDF2);  // c++ exports
 
 **webworker-threads**
 
-## Caching
+## Caching by REDIS
 - we can add index for searching property but it takes memory and time while writing data
 - **caching server** between mongoose and mongodb. Caching server cheks if this query been ever executed before
 **Redis** - instance of cache server - **in memory data store**
@@ -54,9 +54,15 @@ hget('spanish, 'red, (err,value) => console.log(value));
 ```
 we only have option of storing numbers and letters 
 ```
-client.set('solors', JSON.stringify({red: 'rojo'}));
+client.set('colors', JSON.stringify({red: 'rojo'}));
 ```
 clear cache 
 ```
 client.flushall();
+```
+expiring cache
+```
+client.set('hi', 'there', 'EX', 5); // in seconds
+```
+https://github.com/Automattic/mongoose/blob/master/lib/query.js
 
