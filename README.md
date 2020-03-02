@@ -40,6 +40,23 @@ env->SetMethod(target, "pbkdf2", PBKDF2);  // c++ exports
 - **caching server** between mongoose and mongodb. Caching server cheks if this query been ever executed before
 **Redis** - instance of cache server - **in memory data store**
 **node-redis** - node implementation of the library
-
-
+```
+const redis = require('redis');
+const redisUrl = 'redis://127.0.0.1:6379'
+const client = redis.createClient(redisUrl);
+client.set('hi', 'there')
+client.get('hi', (err,value) => console.log(value))
+```
+hash set(**redis hashes**)
+```
+hset('spanish, 'red','rojo');
+hget('spanish, 'red, (err,value) => console.log(value));
+```
+we only have option of storing numbers and letters 
+```
+client.set('solors', JSON.stringify({red: 'rojo'}));
+```
+clear cache 
+```
+client.flushall();
 
