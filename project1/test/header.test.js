@@ -1,11 +1,32 @@
 const puppeteer = require('puppeteer');
 
-test('We can launch a browser', async () => {
-    const browser = await puppeteer.launch({
+let browser, page;
+
+beforeEach( async () =>{
+    browser = await puppeteer.launch({
         headless: false
     });
-    const page = await browser.newPage();
+    page = await browser.newPage();
 
     await page.goto('localhost:3000');
 });
+
+afterEach( async () => {
+    await browser.close();
+});
+
+test('The hader has the correct text', async () => {    
+
+    const text = await page.$eval('a.brand-logo', el => el.innerHTML);
+
+    expect(text).toEqual('Blogster');
+});
+
+test ('clicking login starts oauth flow', async () => {
+    await page.click('.right a');
+
+    const url = await page.url();
+
+    expect(url).toMatch(/accounts\.google\.com/);
+})
 
