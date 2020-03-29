@@ -1,20 +1,19 @@
-const puppeteer = require('puppeteer');
 const sessionFactory = require('./factories/sessionFactory');
 const userFactory = require('./factories/userFactory');
+const Page = require('./helpers/page');
 
-let browser, page;
+let page;
 
 beforeEach( async () =>{
-    browser = await puppeteer.launch({
-        headless: false
-    });
-    page = await browser.newPage();
+    page = await Page.build();    
 
     await page.goto('localhost:3000');
+
+    console.log('here');
 });
 
 afterEach( async () => {
-    await browser.close();
+    await page.close();
 });
 
 test('The hader has the correct text', async () => {    
@@ -33,7 +32,7 @@ test('clicking login starts oauth flow', async () => {
 });
 
 test('when signed in, shows logout button', async () => {
-    //const id = '5e599939dc1ff43dc896e229';
+    
     const user = await userFactory();
 
     const { session, sig } = sessionFactory(user);
