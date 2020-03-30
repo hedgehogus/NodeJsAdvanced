@@ -5,7 +5,7 @@ let page;
 beforeEach( async () =>{
     page = await Page.build();    
 
-    await page.goto('localhost:3002');
+    await page.goto('localhost:3000');
 });
 
 afterEach( async () => {
@@ -19,7 +19,7 @@ test('The hader has the correct text', async () => {
     expect(text).toEqual('Blogster');
 });
 
-test.skip('clicking login starts oauth flow', async () => {
+test('clicking login starts oauth flow', async () => {
     await page.click('.right a');
 
     const url = await page.url();
