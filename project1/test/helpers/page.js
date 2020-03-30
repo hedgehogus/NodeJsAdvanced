@@ -32,6 +32,11 @@ class CustomPage {
     
         await this.page.goto('localhost:3002');
         await this.page.waitFor('a[href="/auth/logout"]');
+        console.log('1');
+    }
+
+    async getContentsOf(selector) {
+        return this.page.$eval(selector, el => el.innerHTML);
     }
 }
 
