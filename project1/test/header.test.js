@@ -33,6 +33,5 @@ test('when signed in, shows logout button', async () => {
     const text = await page.getContentsOf('a[href="/auth/logout"]');
 
     expect(text).toEqual('Logout');
-
 });
 
