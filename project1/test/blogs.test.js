@@ -39,7 +39,14 @@ describe('When logged in', async () => {
         });
 
         test('Submitting than saving adds blog to index page', async () => {
-            
+            await page.click('button.green');
+            await page.waitFor('.card');
+
+            const title = await page.getContentsOf('.card-title');
+            const content = await page.getContentsOf('p');
+
+            expect(title).toEqual('my title');
+            expect(content).toEqual('my content');
         });
     })
 
@@ -57,3 +64,38 @@ describe('When logged in', async () => {
         });
     })
 })
+
+describe('When user is not logged in', async () => {
+    test('user cannot create blog posts', async () => {
+        const result = await page.evaluate(
+            () => {
+                return fetch('/api/blogs', {
+                    method: 'POST',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        title: 'my title', content: 'my content'
+                    })
+                }).then(res => res.json());
+            }
+        );
+        expect(result).toEqual({ error: 'You must log in!' });
+    });
+
+    test('user cannot get a list of posts', async () => {
+        const result = await page.evaluate(
+            () => {
+                return fetch('/api/blogs', {
+                    method: 'GET',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(res => res.json());
+            }
+        );
+        expect(result).toEqual({ error: 'You must log in!' });
+    })
+});
