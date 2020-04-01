@@ -27,15 +27,19 @@ describe('When logged in', async () => {
 
     describe('And using valid inputs', async () => {
         beforeEach( async () =>{
+            await page.type('.title input', 'my title');
+            await page.type('.content input', 'my content');
             await page.click('form button');
         });
 
-        test('the form shows an error message', async () => {
-            const titleError = await page.getContentsOf('.title .red-text');
-            const contentError = await page.getContentsOf('.content .red-text');
+        test('Submitting takes user to review screen', async () => {
+            const text = await page.getContentsOf('h5');
 
-            expect(titleError).toEqual('You must provide a value');
-            expect(contentError).toEqual('You must provide a value');
+            expect(text).toEqual('Please confirm your entries');
+        });
+
+        test('Submitting than saving adds blog to index page', async () => {
+            
         });
     })
 
