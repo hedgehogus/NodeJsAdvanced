@@ -1,0 +1,21 @@
+language: node_js
+node_js:
+  - "8"
+dist: trusty  # linux operation system
+services: 
+  - mongodb
+  - redis-server
+env: 
+  - NODE_ENV=ci
+cache:
+  directories:
+    - node_modules
+    - client/node_modules
+install:
+  - npm install
+  - npm run build
+script:
+  - nohup npm run start &
+# nohup - if the shell is closed, dont kill anything this command creates (no hang up)
+# & - run this command in the subshell (in the background) - returns the process id
+  - sleep 3
