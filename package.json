@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/hedgehogus/NodeJsAdvanced/issues"
   },
-  "homepage": "https://github.com/hedgehogus/NodeJsAdvanced#readme"
+  "homepage": "https://github.com/hedgehogus/NodeJsAdvanced#readme",
+  "dependencies": {
+    "aws-sdk": "^2.656.0"
+  }
 }

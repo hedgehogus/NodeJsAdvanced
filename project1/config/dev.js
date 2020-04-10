@@ -4,5 +4,7 @@ module.exports = {
   googleClientSecret: 'KnH-rZC23z4fr2CN4ISK4srN',
   mongoURI: 'mongodb://hedgehog:abh1abh2abh3@cluster0-shard-00-00-pdqb3.mongodb.net:27017,cluster0-shard-00-01-pdqb3.mongodb.net:27017,cluster0-shard-00-02-pdqb3.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority',
   cookieKey: '123123123',
-  redisUrl: 'redis://127.0.0.1:6379'
+  redisUrl: 'redis://127.0.0.1:6379',
+  accessKeyId: 'key to s3 bucket user access',
+  secretAccessKey: 'secret access key to s3 amazon'
 };
