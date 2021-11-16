@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/hedgehogus/NodeJsAdvanced#readme",
   "dependencies": {
-    "aws-sdk": "^2.656.0"
+    "aws-sdk": "^2.814.0"
   }
 }
